@@ -1,4 +1,4 @@
-FROM node:22-bookworm@sha256:cd7bcd2e7a1e6f72052feb023c7f6b722205d3fcab7bbcbd2d1bfdab10b1e935
+FROM node:22.23.4-bookworm@sha256:2bd396628eceb5c999a6e43731fab69d5fb98b94ba9d9d90b5f64575c5178765
 
 # eMudhra CA compromise (2026-10-20): sanitize OS trust, including build tools.
 RUN set -eu; \
@@ -19,7 +19,7 @@ RUN corepack enable
 
 WORKDIR /app
 
-ENV NODE_OPTIONS="--disable-warning=ExperimentalWarning"
+ENV NODE_OPTIONS="--disable-warning=ExperimentalWarning --use-openssl-ca"
 
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json tsconfig.plugin-sdk.dts.json tsdown.config.ts vitest.config.ts vitest.e2e.config.ts openclaw.mjs ./
 COPY src ./src

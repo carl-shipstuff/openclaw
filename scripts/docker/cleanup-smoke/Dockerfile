@@ -1,4 +1,4 @@
-FROM node:22-bookworm-slim@sha256:3cfe526ec8dd62013b8843e8e5d4877e297b886e5aace4a59fec25dc20736e45
+FROM node:22.23.4-bookworm-slim@sha256:de170b39439eb0e5a3444ad7d60b015614a381e10fecae2e30ec9e735122f38d
 
 # eMudhra CA compromise (2026-10-20): sanitize OS trust, including build tools.
 RUN set -eu; \
